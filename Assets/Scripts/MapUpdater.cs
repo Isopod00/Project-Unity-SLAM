@@ -5,7 +5,7 @@ using RosMessageTypes.Nav;
 
 public class MapUpdater : MonoBehaviour
 {
-    public string mapTopic = "/map"; // TODO: Update this with the map topic name
+    public string mapTopic = "/map"; // Configure the map topic name here
     private MeshRenderer mapRenderer; // Reference to the mesh renderer for the map
     private Texture2D mapTexture; // Texture to update with the map data
 
