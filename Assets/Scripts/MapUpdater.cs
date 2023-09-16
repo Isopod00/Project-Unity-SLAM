@@ -21,7 +21,7 @@ public class MapUpdater : MonoBehaviour
 
     private void MapCallback(OccupancyGridMsg message)
     {
-        Debug.LogWarning("/map callback was triggered");
+        Debug.Log("MapCallback called");
 
         int width = (int)message.info.width;
         int height = (int)message.info.height;
@@ -43,6 +43,8 @@ public class MapUpdater : MonoBehaviour
 
         mapTexture.SetPixels(colors);
         mapTexture.Apply(); // Apply changes to the texture
+
+        Debug.Log("MapCallback finished");
     }
 
 }
