@@ -34,15 +34,24 @@ public class PointCloudUpdater : MonoBehaviour
 
         Color[] colors = new Color[width * height];
 
-        // Iterate through point cloud data and convert it to colors
+        // Assuming RGB color format (3 channels per point)
+        int colorOffset = message.fields.Length; // Adjust the offset according to your message format
+
+        // Iterate through point cloud data and extract RGB color information
         for (int i = 0; i < width * height; i++)
         {
             float x = message.data[i * message.point_step + message.fields[0].offset];
             float y = message.data[i * message.point_step + message.fields[1].offset];
             float z = message.data[i * message.point_step + message.fields[2].offset];
 
-            // Modify color based on point cloud data (example: map Z values to grayscale)
-            Color pixelColor = new Color(z, z, z);
+            // Extract RGB color values from the message (adjust offsets accordingly)
+            byte r = (byte)message.data[i * message.point_step + colorOffset];
+            byte g = (byte)message.data[i * message.point_step + colorOffset + 1];
+            byte b = (byte)message.data[i * message.point_step + colorOffset + 2];
+
+            // Normalize RGB values to [0, 1]
+            Color pixelColor = new Color(r / 255.0f, g / 255.0f, b / 255.0f);
+
             colors[i] = pixelColor;
         }
 
