@@ -35,7 +35,7 @@ public class PointCloudUpdater : MonoBehaviour
         Color[] colors = new Color[width * height];
 
         // Assuming RGB color format (3 channels per point)
-        int colorOffset = message.fields.Length; // Adjust the offset according to your message format
+        int colorOffset = 12; // Adjust this offset according to the message format
 
         // Iterate through point cloud data and extract RGB color information
         for (int i = 0; i < width * height; i++)
