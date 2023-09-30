@@ -889,6 +889,7 @@ GameObject:
   - component: {fileID: 1428649815}
   - component: {fileID: 1428649814}
   - component: {fileID: 1428649813}
+  - component: {fileID: 1428649818}
   m_Layer: 0
   m_Name: Right Controller
   m_TagString: Untagged
@@ -1183,7 +1184,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1428649811}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6803edce0201f574f923fd9d10e5b30a, type: 3}
   m_Name: 
@@ -1531,6 +1532,20 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -6447266317303757838, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_ButtonPressPoint: 0.5
+--- !u!114 &1428649818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1428649811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c35af80e8ed5304eb437eef8d952cc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerAction: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  rayInteractor: {fileID: 1428649816}
 --- !u!1 &1521276243
 GameObject:
   m_ObjectHideFlags: 0
@@ -1545,6 +1560,7 @@ GameObject:
   - component: {fileID: 1521276247}
   - component: {fileID: 1521276246}
   - component: {fileID: 1521276245}
+  - component: {fileID: 1521276250}
   m_Layer: 0
   m_Name: Left Controller
   m_TagString: Untagged
@@ -1839,7 +1855,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1521276243}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6803edce0201f574f923fd9d10e5b30a, type: 3}
   m_Name: 
@@ -2187,6 +2203,20 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: -1636515391019944688, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   m_ButtonPressPoint: 0.5
+--- !u!114 &1521276250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521276243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c35af80e8ed5304eb437eef8d952cc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerAction: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  rayInteractor: {fileID: 1521276248}
 --- !u!1 &1868008379
 GameObject:
   m_ObjectHideFlags: 0
