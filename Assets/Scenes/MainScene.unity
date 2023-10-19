@@ -420,6 +420,84 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ActionAssets:
   - {fileID: -944628639613478452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+--- !u!1001 &636721968
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5405226300781978241, guid: 751a749db4f93104f88c0f7f9d859a54, type: 3}
+      propertyPath: m_Name
+      value: Marker
+      objectReference: {fileID: 0}
+    - target: {fileID: 5405226300781978241, guid: 751a749db4f93104f88c0f7f9d859a54, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761325950524894332, guid: 751a749db4f93104f88c0f7f9d859a54, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761325950524894332, guid: 751a749db4f93104f88c0f7f9d859a54, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761325950524894332, guid: 751a749db4f93104f88c0f7f9d859a54, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761325950524894332, guid: 751a749db4f93104f88c0f7f9d859a54, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761325950524894332, guid: 751a749db4f93104f88c0f7f9d859a54, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761325950524894332, guid: 751a749db4f93104f88c0f7f9d859a54, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761325950524894332, guid: 751a749db4f93104f88c0f7f9d859a54, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761325950524894332, guid: 751a749db4f93104f88c0f7f9d859a54, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761325950524894332, guid: 751a749db4f93104f88c0f7f9d859a54, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761325950524894332, guid: 751a749db4f93104f88c0f7f9d859a54, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761325950524894332, guid: 751a749db4f93104f88c0f7f9d859a54, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761325950524894332, guid: 751a749db4f93104f88c0f7f9d859a54, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761325950524894332, guid: 751a749db4f93104f88c0f7f9d859a54, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 751a749db4f93104f88c0f7f9d859a54, type: 3}
+--- !u!1 &636721969 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5405226300781978241, guid: 751a749db4f93104f88c0f7f9d859a54, type: 3}
+  m_PrefabInstance: {fileID: 636721968}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1546,6 +1624,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerAction: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   rayInteractor: {fileID: 1428649816}
+  placeMarkerAction: {fileID: -3135679311249642491, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  markerGameObject: {fileID: 636721969}
 --- !u!1 &1521276243
 GameObject:
   m_ObjectHideFlags: 0
@@ -2217,6 +2297,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   triggerAction: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   rayInteractor: {fileID: 1521276248}
+  placeMarkerAction: {fileID: 8152370242385456849, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  markerGameObject: {fileID: 636721969}
 --- !u!1 &1868008379
 GameObject:
   m_ObjectHideFlags: 0
@@ -2569,3 +2651,4 @@ SceneRoots:
   - {fileID: 388564711}
   - {fileID: 1868008382}
   - {fileID: 990636383}
+  - {fileID: 636721968}
