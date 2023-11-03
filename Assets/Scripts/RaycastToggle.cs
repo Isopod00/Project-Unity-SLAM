@@ -3,14 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.InputSystem;
+using Unity.Robotics.ROSTCPConnector;
+using RosMessageTypes.Geometry;
+using RosMessageTypes.Std;
+using RosMessageTypes.BuiltinInterfaces;
 
 public class RaycastToggle : MonoBehaviour
 {
+    ROSConnection ros;
+    public string topicName = "goal_pose";
+
     public InputActionReference triggerAction = null;
     public XRRayInteractor rayInteractor = null;
-
     public InputActionReference placeMarkerAction = null;
     public GameObject markerGameObject = null; // Global reference to the markerGameObject Singleton
+
+    void Start()
+    {
+        // start the ROS connection
+        ros = ROSConnection.GetOrCreateInstance();
+        ros.RegisterPublisher<PoseStampedMsg>(topicName);
+    }
 
     private void OnEnable()
     {
@@ -57,7 +70,20 @@ public class RaycastToggle : MonoBehaviour
                     markerGameObject.SetActive(true);
                 }
 
-                // TODO: Publish the markerGameObject's position to /goal_pose
+                // Publish the markerGameObject's position to /goal_pose
+                ros.Publish(topicName, new PoseStampedMsg
+                {
+                    header = new HeaderMsg
+                    {
+                        stamp = new TimeMsg(), // TODO: Set the timestamp
+                        frame_id = "map" // Set the frame id
+                    },
+                    pose = new PoseMsg
+                    {
+                        position = new PointMsg { x = hit.point.x, y = hit.point.y, z = hit.point.z }, // Set the position
+                        orientation = new QuaternionMsg { x = 0, y = 0, z = 0, w = 1 } // TODO: Implement orientation adjustment
+                    }
+                });
             }
         }
     }
