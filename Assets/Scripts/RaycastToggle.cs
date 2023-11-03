@@ -11,7 +11,7 @@ using RosMessageTypes.BuiltinInterfaces;
 public class RaycastToggle : MonoBehaviour
 {
     ROSConnection ros;
-    public string topicName = "goal_pose";
+    public string topicName = "/goal_pose";
 
     public InputActionReference triggerAction = null;
     public XRRayInteractor rayInteractor = null;
@@ -80,7 +80,7 @@ public class RaycastToggle : MonoBehaviour
                     },
                     pose = new PoseMsg
                     {
-                        position = new PointMsg { x = hit.point.x, y = hit.point.y, z = hit.point.z }, // Set the position
+                        position = new PointMsg { x = hit.point.z, y = -hit.point.x, z = hit.point.y }, // Set the position (note the axis conversion from Unity to ROS)
                         orientation = new QuaternionMsg { x = 0, y = 0, z = 0, w = 1 } // TODO: Implement orientation adjustment
                     }
                 });
