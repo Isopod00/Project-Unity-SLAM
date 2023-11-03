@@ -75,7 +75,7 @@ public class RaycastToggle : MonoBehaviour
                 {
                     header = new HeaderMsg
                     {
-                        stamp = new TimeMsg(), // TODO: Set the timestamp
+                        stamp = new TimeMsg((int)(Time.timeSinceLevelLoad), 0), // Set the timestamp
                         frame_id = "map" // Set the frame id
                     },
                     pose = new PoseMsg
