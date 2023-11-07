@@ -80,8 +80,8 @@ public class RaycastToggle : MonoBehaviour
                     },
                     pose = new PoseMsg
                     {
-                        position = new PointMsg { x = hit.point.z, y = -hit.point.x, z = hit.point.y }, // Set the position (note the axis conversion from Unity to ROS)
-                        orientation = new QuaternionMsg { x = 0, y = 0, z = 0, w = 1 } // TODO: Implement orientation adjustment
+                        position = new PointMsg {x = hit.point.z, y = -hit.point.x, z = hit.point.y}, // Set the position (note the axis conversion from Unity to ROS)
+                        orientation = new QuaternionMsg {x = markerGameObject.transform.rotation.z, y = -markerGameObject.transform.rotation.x, z = markerGameObject.transform.rotation.y, w = markerGameObject.transform.rotation.w} // Set the orientation (note the axis conversion from Unity to ROS)
                     }
                 });
             }
