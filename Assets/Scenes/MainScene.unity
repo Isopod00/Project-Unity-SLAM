@@ -1368,6 +1368,7 @@ MonoBehaviour:
   m_AutoDeselect: 0
   m_TimeToAutoDeselect: 3
   m_EnableUIInteraction: 1
+  m_BlockUIOnInteractableSelection: 1
   m_AllowAnchorControl: 1
   m_UseForceGrab: 1
   m_RotateSpeed: 180
@@ -1622,10 +1623,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c35af80e8ed5304eb437eef8d952cc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  topicName: /goal_pose
   triggerAction: {fileID: 83097790271614945, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   rayInteractor: {fileID: 1428649816}
   placeMarkerAction: {fileID: -3135679311249642491, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   markerGameObject: {fileID: 636721969}
+  rotateRightAction: {fileID: 9013104963108841939, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  rotateLeftAction: {fileID: 0}
 --- !u!1 &1521276243
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,6 +2045,7 @@ MonoBehaviour:
   m_AutoDeselect: 0
   m_TimeToAutoDeselect: 3
   m_EnableUIInteraction: 1
+  m_BlockUIOnInteractableSelection: 1
   m_AllowAnchorControl: 1
   m_UseForceGrab: 1
   m_RotateSpeed: 180
@@ -2295,10 +2300,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c35af80e8ed5304eb437eef8d952cc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  topicName: /goal_pose
   triggerAction: {fileID: -5982496924579745919, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   rayInteractor: {fileID: 1521276248}
   placeMarkerAction: {fileID: 8152370242385456849, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   markerGameObject: {fileID: 636721969}
+  rotateRightAction: {fileID: 0}
+  rotateLeftAction: {fileID: -8984099898578566527, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!1 &1868008379
 GameObject:
   m_ObjectHideFlags: 0

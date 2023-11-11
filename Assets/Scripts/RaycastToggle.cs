@@ -18,6 +18,12 @@ public class RaycastToggle : MonoBehaviour
     public InputActionReference placeMarkerAction = null;
     public GameObject markerGameObject = null; // Global reference to the markerGameObject Singleton
 
+    // These are for manually rotating the markerGameObject Singleton
+    public InputActionReference rotateRightAction = null;
+    public InputActionReference rotateLeftAction = null;
+    // Smoothly rotates the markerGameObject Singleton
+    private Coroutine rotateCoroutine = null;
+
     void Start()
     {
         // start the ROS connection
@@ -35,6 +41,14 @@ public class RaycastToggle : MonoBehaviour
         {
             placeMarkerAction.action.performed += PlaceMarker;
         }
+        if (rotateLeftAction != null)
+        {
+            rotateLeftAction.action.performed += LeftGripPressed;
+        }
+        if (rotateRightAction != null)
+        {
+            rotateRightAction.action.performed += RightGripPressed;
+        }
     }
 
     private void OnDisable()
@@ -47,11 +61,95 @@ public class RaycastToggle : MonoBehaviour
         {
             placeMarkerAction.action.performed -= PlaceMarker;
         }
+        if (rotateLeftAction != null)
+        {
+            rotateLeftAction.action.performed -= LeftGripPressed;
+        }
+        if (rotateRightAction != null)
+        {
+            rotateRightAction.action.performed -= RightGripPressed;
+        }
     }
 
     private void TriggerPressed(InputAction.CallbackContext context)
     {
         rayInteractor.enabled = !rayInteractor.enabled;
+    }
+
+    private void LeftGripPressed(InputAction.CallbackContext context)
+    {
+        if (rotateCoroutine == null)
+        {
+            rotateCoroutine = StartCoroutine(RotateMarker(-1));
+        }
+        else
+        {
+            StopCoroutine(rotateCoroutine);
+            rotateCoroutine = null;
+
+            // Publish the markerGameObject's position and orientation to /goal_pose if the markerGameObject is enabled
+            if (markerGameObject.activeSelf == true)
+            {
+                ros.Publish(topicName, new PoseStampedMsg
+                {
+                    header = new HeaderMsg
+                    {
+                        stamp = new TimeMsg((int)(Time.timeSinceLevelLoad), 0), // Set the timestamp
+                        frame_id = "map" // Set the frame id
+                    },
+                    pose = new PoseMsg
+                    {
+                        position = new PointMsg { x = markerGameObject.transform.position.z, y = -markerGameObject.transform.position.x, z = markerGameObject.transform.position.y }, // Set the position (note the axis conversion from Unity to ROS)
+                        orientation = new QuaternionMsg { x = markerGameObject.transform.rotation.z, y = -markerGameObject.transform.rotation.x, z = markerGameObject.transform.rotation.y, w = markerGameObject.transform.rotation.w } // Set the orientation (note the axis conversion from Unity to ROS)
+                    }
+                });
+            }
+        }
+    }
+
+    private void RightGripPressed(InputAction.CallbackContext context)
+    {
+        if (rotateCoroutine == null)
+        {
+            rotateCoroutine = StartCoroutine(RotateMarker(1));
+        }
+        else
+        {
+            StopCoroutine(rotateCoroutine);
+            rotateCoroutine = null;
+
+            // Publish the markerGameObject's position and orientation to /goal_pose if the markerGameObject is enabled
+            if (markerGameObject.activeSelf == true)
+            {
+                ros.Publish(topicName, new PoseStampedMsg
+                {
+                    header = new HeaderMsg
+                    {
+                        stamp = new TimeMsg((int)(Time.timeSinceLevelLoad), 0), // Set the timestamp
+                        frame_id = "map" // Set the frame id
+                    },
+                    pose = new PoseMsg
+                    {
+                        position = new PointMsg { x = markerGameObject.transform.position.z, y = -markerGameObject.transform.position.x, z = markerGameObject.transform.position.y }, // Set the position (note the axis conversion from Unity to ROS)
+                        orientation = new QuaternionMsg { x = markerGameObject.transform.rotation.z, y = -markerGameObject.transform.rotation.x, z = markerGameObject.transform.rotation.y, w = markerGameObject.transform.rotation.w } // Set the orientation (note the axis conversion from Unity to ROS)
+                    }
+                });
+            }
+        }
+    }
+
+    private IEnumerator RotateMarker(int direction)
+    {
+        while (true)
+        {
+            // Create a rotation that rotates an angle around the markerGameObject's normal direction
+            Quaternion rotation = Quaternion.AngleAxis(direction * Time.deltaTime * 25, markerGameObject.transform.up); // Adjust the speed of rotation as needed
+
+            // Apply the rotation to the markerGameObject
+            markerGameObject.transform.rotation = rotation * markerGameObject.transform.rotation;
+
+            yield return null;
+        }
     }
 
     private void PlaceMarker(InputAction.CallbackContext context)
@@ -72,7 +170,7 @@ public class RaycastToggle : MonoBehaviour
                     markerGameObject.SetActive(true);
                 }
 
-                // Publish the markerGameObject's position to /goal_pose
+                // Publish the markerGameObject's position and orientation to /goal_pose
                 ros.Publish(topicName, new PoseStampedMsg
                 {
                     header = new HeaderMsg
@@ -82,7 +180,7 @@ public class RaycastToggle : MonoBehaviour
                     },
                     pose = new PoseMsg
                     {
-                        position = new PointMsg {x = hit.point.z, y = -hit.point.x, z = hit.point.y}, // Set the position (note the axis conversion from Unity to ROS)
+                        position = new PointMsg {x = markerGameObject.transform.position.z, y = -markerGameObject.transform.position.x, z = markerGameObject.transform.position.y}, // Set the position (note the axis conversion from Unity to ROS)
                         orientation = new QuaternionMsg {x = markerGameObject.transform.rotation.z, y = -markerGameObject.transform.rotation.x, z = markerGameObject.transform.rotation.y, w = markerGameObject.transform.rotation.w} // Set the orientation (note the axis conversion from Unity to ROS)
                     }
                 });
