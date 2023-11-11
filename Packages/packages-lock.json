@@ -88,14 +88,14 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "4431e1e83568bce6a98ae36be3785744e38a73fb"
+      "hash": "276cda64284d10c3d26acf2b32e9ace263e6e682"
     },
     "com.unity.robotics.visualizations": {
       "version": "https://github.com/Isopod00/ROS-TCP-Connector.git?path=/com.unity.robotics.visualizations",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "4431e1e83568bce6a98ae36be3785744e38a73fb"
+      "hash": "276cda64284d10c3d26acf2b32e9ace263e6e682"
     },
     "com.unity.settings-manager": {
       "version": "2.0.1",
