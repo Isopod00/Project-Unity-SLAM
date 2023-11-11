@@ -63,6 +63,8 @@ public class RaycastToggle : MonoBehaviour
             {
                 // Move the markerGameObject Singleton to the hit point
                 markerGameObject.transform.position = hit.point;
+                // Rotate the markerGameObject Singleton to point in the same direction as the raycast (but project it onto the hit surface)
+                markerGameObject.transform.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(rayInteractor.transform.forward, hit.normal));
 
                 // If markerGameObject isn't visible yet, enable it now
                 if (markerGameObject.activeSelf == false)
