@@ -443,6 +443,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Grip",
+                    "type": "Button",
+                    "id": "cbf544bb-a8b8-4689-8e75-a45639a660bc",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -674,6 +683,17 @@
                     "processors": "",
                     "groups": "Generic XR Controller",
                     "action": "Y Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4f2caff2-dbcd-4f99-bd1e-5bd0bd98ab95",
+                    "path": "<XRController>{LeftHand}/{GripButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Grip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
@@ -1239,6 +1259,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Grip",
+                    "type": "Button",
+                    "id": "a3d0a091-327e-4b64-9306-cae5374daba7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Press(behavior=2)",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -1470,6 +1499,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "B Button",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "79866fe5-d1e3-4371-96ec-459238a2b048",
+                    "path": "<XRController>{RightHand}/{GripButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Generic XR Controller",
+                    "action": "Grip",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
