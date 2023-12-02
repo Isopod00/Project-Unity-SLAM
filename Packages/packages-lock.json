@@ -88,7 +88,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "276cda64284d10c3d26acf2b32e9ace263e6e682"
+      "hash": "7af77011ded40d32fbdf180fb20d9813ec48c767"
     },
     "com.unity.robotics.visualizations": {
       "version": "https://github.com/Isopod00/ROS-TCP-Connector.git?path=/com.unity.robotics.visualizations",
