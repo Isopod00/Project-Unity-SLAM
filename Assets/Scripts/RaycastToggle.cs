@@ -175,13 +175,13 @@ public class RaycastToggle : MonoBehaviour
                 {
                     header = new HeaderMsg
                     {
-                        stamp = new TimeMsg((int)(Time.timeSinceLevelLoad), 0), // Set the timestamp
+                        stamp = new TimeMsg(0, 0), // Setting the timestamp to 0 will allow Nav2 to just use the most recent transform available
                         frame_id = "map" // Set the frame id
                     },
                     pose = new PoseMsg
                     {
-                        position = new PointMsg {x = markerGameObject.transform.position.z, y = -markerGameObject.transform.position.x, z = markerGameObject.transform.position.y}, // Set the position (note the axis conversion from Unity to ROS)
-                        orientation = new QuaternionMsg {x = markerGameObject.transform.rotation.z, y = -markerGameObject.transform.rotation.x, z = markerGameObject.transform.rotation.y, w = markerGameObject.transform.rotation.w} // Set the orientation (note the axis conversion from Unity to ROS)
+                        position = new PointMsg { x = markerGameObject.transform.position.z, y = -markerGameObject.transform.position.x, z = markerGameObject.transform.position.y }, // Set the position (note the axis conversion from Unity to ROS)
+                        orientation = new QuaternionMsg { x = markerGameObject.transform.rotation.z, y = -markerGameObject.transform.rotation.x, z = markerGameObject.transform.rotation.y, w = markerGameObject.transform.rotation.w } // Set the orientation (note the axis conversion from Unity to ROS)
                     }
                 });
             }
